@@ -1,0 +1,48 @@
+body {
+    margin-top: 60px;
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.amatic-text{
+    font-family: 'Amatic SC', cursive;
+}
+
+.navbar {
+    display: block;
+    background: #6a7dff;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    font-size: 0;
+    box-sizing: border-box;
+    padding: 7px 30px;
+}
+
+.menu {
+    font-size: 14px;
+    line-height: 1;
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+    color: #fffee8;
+}
+
+.menu li {
+    display: inline-block;
+}
+
+.menu a {
+    display: inline-block;
+    text-decoration: none;
+    color: inherit;
+    padding: 5px 15px;
+}
+
+.menu a:hover {
+    color: #ffc122;
+}
+
+.a-text:hover {
+    color: #ffc122;
+}

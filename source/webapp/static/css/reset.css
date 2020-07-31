@@ -1,0 +1,117 @@
+html,
+body,
+div,
+span,
+object,
+iframe,
+img,
+strong,
+b,
+u,
+i,
+table,
+tbody,
+tfoot,
+thead,
+td,
+th,
+tr,
+form,
+label,
+legend,
+header,
+footer,
+article,
+section,
+aside
+{
+    margin: 0; 
+    padding: 0; 
+    vertical-align: baseline; 
+    border: 0; 
+    background: transparent;
+}
+
+ul,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p
+{
+    margin: 0;
+    padding: 0;
+}
+
+input:focus,
+select:focus,
+textarea:focus
+{
+    outline: none;
+}
+
+table,
+td,
+th,
+tr
+{
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+html,
+body
+{
+    width: 100%; 
+    height: 100%;
+}
+
+input,
+select,
+textarea,
+button
+{
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif; 
+    font-weight: 400; 
+    box-sizing: border-box; 
+    color: #000;
+}
+
+a,
+button,
+input[type='button'],
+input[type='submit'],
+input[type='reset']
+{
+    cursor: pointer;
+    border: none;
+}
+
+.clear
+{
+    font-size: 0;
+    clear: both;
+}
+
+.clearfix::after
+{
+    display: table;
+    clear: both;
+    content: '';
+}
+
+body 
+{
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+a
+{
+    color: inherit;
+}
+
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+    text-decoration: none;
+}
