@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Create{% endblock %}
+
+{% block content %}
+    <h1 class="text-info">Add New Product</h1>
+
+    {% url 'product_create' as action_url %}
+    {% include 'partial/form.html' with action_url=action_url form_method='post' %}
+    <br/>
+
+{% endblock %}
+
+
+{#        {{ form.as_p }}#}
+{#        {{ form.as_table }}#}
+{#        {{ form.as_ul }}#}
+
+{#        {% for field in form %}#}
+{#            {% include 'partial/form_field.html' %}#}
+{#        {% endfor %}#}
+
+{#        {% include 'partial/form_field.html' with field=form.title %}#}
+{#        {% include 'partial/form_field.html' with field=form.text %}#}
+{#        {% include 'partial/form_field.html' with field=form.author %}#}
+{#        {% include 'partial/form_field.html' with field=form.status %}#}

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Main{% endblock %}
+
+{% block content %}
+    <h1 class="text-uppercase text-info amatic-text">To do list</h1>
+    <div class="row row-cols-1 row-cols-md-3">
+        {% for product in products %}
+            <div class="col mb-4">
+                <div class="card border-info mb-3" style="max-width: 18rem;">
+                    <div class="card-header border-info a-text"><a class="text-success text-uppercase text-decoration-none"
+                            href="{% url "product_view" product.pk %}">{{ product.name }}</a>
+                    </div>
+                    <div class="card-body text-success">
+                        <h5 class="card-title">Status: {{ product.description }}</h5>
+                        <p class="card-text">{{ product.get_category_display }}</p>
+                        <p class="card-text">{{ product.price }}</p>
+                    </div>
+                    <div class="card-footer bg-transparent border-info">
+                        <p class="text-secondary">On hand: {{ product.amount }}</p>
+                        <div class="d-flex justify-content-around">
+                            <p><a href="{% url "product_update" product.pk %}" class="btn btn-sm btn-info">Update</a></p>
+                            <p><a href="{% url "product_delete" product.pk %}" class="btn btn-sm btn-info">Delete</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

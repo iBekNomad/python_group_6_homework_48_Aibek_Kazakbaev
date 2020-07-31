@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Update{% endblock %}
+
+{% block menu %}
+    <li><a href="{% url 'product_view' product.pk %}" class="text-uppercase">Cancel</a></li>
+{% endblock %}
+
+{% block content %}
+    <h1 class="text-info">Update product</h1>
+
+    {% url 'product_update' as action_url %}
+    {% include 'partial/form.html' with action_url=action_url form_method='post' button_text='Update' %}
+    <br/>
+
+{% endblock %}
+
+{#<form action="{% url "article_update" article.pk %}" method="post">#}
+{#    {% csrf_token %}#}
+{##}
+{#    {% for field in form %}#}
+{#        {% include 'partial/form_field.html' %}#}
+{#    {% endfor %}#}
+{##}
+{#    <br/>#}
+{#    <input type="submit" value="Send"/>#}
+{#</form>#}

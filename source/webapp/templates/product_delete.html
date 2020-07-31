@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Delete{% endblock %}
+
+{% block menu %}
+    <li><a href="{% url 'product_view' product.pk %}">Cancel</a></li>
+{% endblock %}
+
+{% block content %}
+    <h2>Are you sure to delete product "{{ product.description }}"?</h2>
+    <p>Amount: {{ product.amount }}</p>
+    <form action="{% url 'product_delete' product.pk %}" method="post">
+        {% csrf_token %}
+        <div class="d-flex justify-content-start">
+            <p class="mr-5"><input type="submit" value="yes" class="btn btn btn-info"></p>
+            <p><a href="{% url "product_view" product.pk%}" class="btn btn btn-info">no</a> </p>
+        </div>
+    </form>
+    <p></p>
+    <h3>Detailed description:</h3>
+    <p>{{ product.description }}</p>
+{% endblock %}
