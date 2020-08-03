@@ -46,3 +46,7 @@ body {
 .a-text:hover {
     color: #ffc122;
 }
+
+.t-end {
+    text-align: end;
+}

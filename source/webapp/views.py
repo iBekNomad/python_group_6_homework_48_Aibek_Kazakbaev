@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponseNotAllowed
+from django.db.models import Q
 
 from webapp.models import Product
 from .forms import ProductForm
@@ -83,3 +84,12 @@ def product_delete_view(request, pk):
         return redirect('index')
     else:
         return HttpResponseNotAllowed(permitted_methods=['GET', 'POST'])
+
+
+def product_search_view(request):
+    query = request.GET.get('q')
+    products = Product.objects.filter(Q(name__icontains=query))
+    context = {
+        'products': products
+    }
+    return render(request, 'product_search.html', context)

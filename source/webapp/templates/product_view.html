@@ -8,8 +8,8 @@
 {% endblock %}
 
 {% block content %}
-    <h1>{{ product.name }}</h1>
+    <h2 class="d-flex justify-content-center">{{ product.name }}</h2>
     <p>{{ product.description }}</p>
-    <p>Категория: {{ product.get_category_display }} | Цена: {{ product.price }}</p>
-    <p>Остаток: {{ product.amount }}</p>
+    <h4 class="d-flex justify-content-end">Категория: {{ product.get_category_display }} | Цена: {{ product.price }} сом</h4>
+    <h4 class="d-flex justify-content-end">Остаток: {{ product.amount }} шт.</h4>
 {% endblock %}
