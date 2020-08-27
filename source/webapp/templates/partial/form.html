@@ -1,6 +1,10 @@
 <form action="{{ action_url }}" method="{{ form_method }}">
     {% csrf_token %}
 
+    {% for error in form.non_field_errors %}
+        <p class="error">{{ error }}</p>
+    {% endfor %}
+
     {% for field in form %}
         {% include 'partial/form_field.html' %}
     {% endfor %}

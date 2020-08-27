@@ -2,18 +2,24 @@
 
 {% block title %}Main{% endblock %}
 
+{% block menu %}
+    <li class="d-inline-block float-right">{% include 'partial/simple_search.html' %}</li>
+{% endblock %}
+
 {% block content %}
     <h1 class="text-info amatic-text">Market Products</h1>
+    {% if is_paginated %}
+        {% include 'partial/pagination.html' %}
+    {% endif %}
     <div class="row row-cols-1 row-cols-md-3">
         {% for product in products %}
             <div class="col mb-4">
                 <div class="card border-info mb-3" style="max-width: 18rem;">
-                    <div class="card-header border-info a-text"><a
+                    <div class="card-header border-info a-text font-weight-bold"><a
                             class="text-success text-decoration-none"
                             href="{% url "product_view" product.pk %}">{{ product.name }}</a>
                     </div>
                     <div class="card-body text-success">
-                        <h5 class="card-title">{{ product.description }}</h5>
                         <div class="card-text">Категория: <h3>{{ product.get_category_display }}</h3></div>
                         <div class="card-text">Цена: <h3>{{ product.price }} сом</h3></div>
                     </div>
@@ -29,4 +35,7 @@
             </div>
         {% endfor %}
     </div>
+    {% if is_paginated %}
+        {% include 'partial/pagination.html' %}
+    {% endif %}
 {% endblock %}
