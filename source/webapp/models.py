@@ -27,3 +27,15 @@ class Product(models.Model):
     class Meta:
         verbose_name = 'Товар'
         verbose_name_plural = 'Товары'
+
+
+class Cart(models.Model):
+    product = models.ForeignKey('webapp.Product', related_name='carts', on_delete=models.CASCADE, verbose_name='Продукт')
+    amount = models.IntegerField(verbose_name='Остаток в корзине')
+
+    def __str__(self):
+        return f'{self.product} - {self.amount}'
+
+    class Meta:
+        verbose_name = 'Корзина'
+        verbose_name_plural = 'Корзины'
