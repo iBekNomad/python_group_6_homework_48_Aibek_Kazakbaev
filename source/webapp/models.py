@@ -30,7 +30,7 @@ class Product(models.Model):
 
 
 class Cart(models.Model):
-    product = models.ForeignKey('webapp.Product', related_name='carts', on_delete=models.CASCADE, verbose_name='Продукт')
+    product = models.ForeignKey('webapp.Product', related_name='carts', on_delete=models.CASCADE, verbose_name='Продукты')
     amount = models.IntegerField(verbose_name='Остаток в корзине')
 
     def __str__(self):

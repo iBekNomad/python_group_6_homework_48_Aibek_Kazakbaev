@@ -1,5 +1,5 @@
 <form class="form-inline my-2 my-lg-0" action="" method="GET">
-    {{ form.search }}
+    {{ search_form.search }}
     <input class="btn btn-sm btn-outline-light ml-1" type="submit" value="Search">
     {% for error in form.search.errors %}
         <p class="form-error">{{ error }}</p>

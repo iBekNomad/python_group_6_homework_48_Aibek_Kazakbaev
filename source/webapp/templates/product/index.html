@@ -11,25 +11,33 @@
     {% if is_paginated %}
         {% include 'partial/pagination.html' %}
     {% endif %}
-    <div class="row row-cols-1 row-cols-md-3">
+    <div class="row">
         {% for product in products %}
-            <div class="col mb-4">
-                <div class="card border-info mb-3" style="max-width: 18rem;">
-                    <div class="card-header border-info a-text font-weight-bold"><a
-                            class="text-success text-decoration-none"
-                            href="{% url "product_view" product.pk %}">{{ product.name }}</a>
-                    </div>
-                    <div class="card-body text-success">
-                        <div class="card-text">Категория: <h3>{{ product.get_category_display }}</h3></div>
-                        <div class="card-text">Цена: <h3>{{ product.price }} сом</h3></div>
-                    </div>
-                    <div class="card-footer bg-transparent border-info">
-                        <div class="d-flex justify-content-around">
-                            <p><a href="{% url "product_update" product.pk %}" class="btn btn-sm btn-info">Update</a>
-                            </p>
-                            <p><a href="{% url "product_delete" product.pk %}" class="btn btn-sm btn-info">Delete</a>
-                            </p>
+            <div class="col-sm-6">
+                <div class="card border-info mb-3">
+                    <div class="d-flex bd-highlight">
+                        <div class="mr-auto p-2 bd-highlight">
+                            <h3><a href="{% url 'product_view' product.pk %}"
+                                   class="text-decoration-none text-success">{{ product.name }}</a>
+                            </h3>
+                            <h4><span class="text-info mr-1">Category:</span> {{ product.category }}</h4>
                         </div>
+                        <div class="p-2 bd-highlight"><h3><a
+                                href="{% url 'product_update' product.pk %}" class="text-success" data-toggle="tooltip"
+                                data-placement="top" title="Update"><i
+                                class="far fa-edit"></i></a></h3></div>
+                        <div class="p-2 bd-highlight"><h3><a
+                                href="{% url 'product_delete' product.pk %}" class="text-success" data-toggle="tooltip"
+                                data-placement="top" title="Delete"><i
+                                class="far fa-trash-alt"></i></a></h3></div>
+                    </div>
+                    <div class="card-body text-info d-flex">
+                        <h4 class="card-text mr-auto">Price: {{ product.price }}</h4>
+                        <h4 class="card-text mr-auto">Amount: {{ product.amount }}</h4>
+                        <form class="" action="{% url 'cart_add' product.pk %}" method="post">
+                            {% csrf_token %}
+                            <input class="btn btn-success" type="submit" value="Add to Cart"/>
+                        </form>
                     </div>
                 </div>
             </div>

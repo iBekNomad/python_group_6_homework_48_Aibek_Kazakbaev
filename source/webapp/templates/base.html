@@ -18,9 +18,10 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-info fixed-top">
         <div class="container">
-            <ul class="menu">
+            <ul class="menu w-100">
                 <li><a href="{% url 'index' %}" class="text-uppercase">Home</a></li>
                 <li><a href="{% url 'product_create' %}" class="text-uppercase">Add Product</a></li>
+                <li><a href="{% url 'cart_index' %}" class="text-uppercase">Cart</a></li>
                 {% block menu %}{% endblock %}
             </ul>
         </div>
