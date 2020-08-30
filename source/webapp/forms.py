@@ -1,7 +1,7 @@
 from django import forms
 from django.core.exceptions import ValidationError
 
-from .models import CATEGORY_CHOICES, Product, Cart
+from .models import CATEGORY_CHOICES, Product, Cart, Order
 
 default_category = CATEGORY_CHOICES[0][0]
 
@@ -27,3 +27,10 @@ class ProductForm(forms.ModelForm):
 
 class SimpleSearchForm(forms.Form):
     search = forms.CharField(max_length=100, required=False, label="Search")
+
+
+class OrderForm(forms.ModelForm):
+
+    class Meta:
+        model = Order
+        fields = ['user_name', 'phone_number', 'address']

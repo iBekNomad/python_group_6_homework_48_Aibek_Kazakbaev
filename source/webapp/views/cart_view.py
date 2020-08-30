@@ -20,6 +20,9 @@ class CartView(SearchView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        context['total'] = 0
+        for item in Cart.objects.all():
+            context['total'] += (item.amount * item.product.price)
         return context
 
 

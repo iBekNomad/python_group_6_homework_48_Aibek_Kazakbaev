@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}View{% endblock %}
+
+{% block content %}
+    <h2 class="d-flex justify-content-center">Order №: {{ checkoutorder.pk }}</h2>
+    <p>product: {{ checkoutorder.checkout_product.name }}</p>
+    <p>qty: {{ checkoutorder.total_amount }}</p>
+{#    <h4 class="d-flex justify-content-end">Категория: {{ product.get_category_display }} | Цена: {{ product.price }} сом</h4>#}
+{#    <h4 class="d-flex justify-content-end">Остаток: {{ product.amount }} шт.</h4>#}
+{% endblock %}

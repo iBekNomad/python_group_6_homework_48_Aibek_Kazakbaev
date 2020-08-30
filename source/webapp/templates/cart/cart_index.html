@@ -4,13 +4,13 @@
 
 
 {% block content %}
-    <h1 class="text-info amatic-text">Cart</h1>
+    <h1 class="text-info amatic-text font-weight-bold d-flex justify-content-center">Cart</h1>
     {% if is_paginated %}
         {% include 'partial/pagination.html' %}
     {% endif %}
     <div class="row">
         {% for product in carts %}
-            <div class="col-sm-6">
+            <div class="col-sm-12">
                 <div class="card border-info mb-3">
                     <div class="d-flex bd-highlight">
                         <div class="mr-auto p-2 bd-highlight">
@@ -33,6 +33,20 @@
                 </div>
             </div>
         {% endfor %}
+        <div class="alert alert-info text-uppercase font-weight-bold col-sm-12" role="alert">
+            <h2 class="d-flex justify-content-center">total: <span class="font-weight-bold pl-2 pr-2">{{ total }}</span>
+                som</h2>
+            <form action="{% url 'order_create' %}" method="post">
+                {% csrf_token %}
+                {% include 'partial/form_field.html' with field=form.user_name %}
+                {% include 'partial/form_field.html' with field=form.phone_number %}
+                {% include 'partial/form_field.html' with field=form.address %}
+                <div class="d-flex justify-content-center">
+                    <input class="w-25 text-uppercase btn btn btn-outline-info font-weight-bold" type="submit"
+                           value="CheckOut"/>
+                </div>
+            </form>
+        </div>
     </div>
     {% if is_paginated %}
         {% include 'partial/pagination.html' %}

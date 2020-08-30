@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}Create{% endblock %}
+
+{% block content %}
+    <h1 class="text-info">Check Out</h1>
+
+    {% url 'order_create' as action_url %}
+    {% include 'partial/form.html' with action_url=action_url form_method='post' %}
+    <br/>
+
+{% endblock %}
