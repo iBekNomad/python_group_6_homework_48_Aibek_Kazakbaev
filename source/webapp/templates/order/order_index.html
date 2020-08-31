@@ -8,9 +8,12 @@
     {% for order in orders %}
         <ul class="list-group mb-3">
             <li class="list-group-item list-group-item-info">
-                <h3 class="d-inline-block">{{ order.checkout_product.name }}</h3>
-                <h4 class="d-inline-block float-right">qty: {{ order.total_amount }}</h4>
+                <h3 class="d-inline-block font-weight-bold">{{ order.checkout_product.name }}</h3>
+                <h4 class="d-inline-block float-right font-weight-bold">qty: {{ order.total_amount }}</h4>
                 <h4 class="">order #: {{ order.order_id }}</h4>
+                <h4 class="">Client: {{ order.order.user_name }}</h4>
+                <h4 class="">Phone: {{ order.order.phone_number }}</h4>
+                <h4 class="">Address: {{ order.order.address }}</h4>
             </li>
         </ul>
     {% endfor %}
