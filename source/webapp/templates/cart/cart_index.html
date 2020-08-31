@@ -12,23 +12,26 @@
         {% for product in carts %}
             <div class="col-sm-12">
                 <div class="card border-info mb-3">
-                    <div class="d-flex bd-highlight">
+                    <div class="d-flex bd-highlight list-group-item-info">
                         <div class="mr-auto p-2 bd-highlight">
-                            <h4 class="text-success font-weight-bold">
+                            <h4 class="list-group-item-info font-weight-bold">
                                 {{ product.product.name }}
                             </h4>
                             <h5 class="text-info">
-                                Price: {{ product.product.price }}
+                                Price: <span
+                                    class="font-weight-bold list-group-item-info">{{ product.product.price }}</span>
                             </h5>
                         </div>
                         <div class="p-2 bd-highlight"><h3><a
-                                href="{% url 'remove_product' product.pk %}" class="text-success" data-toggle="tooltip"
+                                href="{% url 'remove_product' product.pk %}" class="list-group-item-info"
+                                data-toggle="tooltip"
                                 data-placement="top" title="Delete"><i
                                 class="far fa-trash-alt"></i></a></h3>
                         </div>
                     </div>
-                    <div class="card-body text-info d-flex">
-                        <h5 class="card-text mr-auto">Amount: {{ product.amount }}</h5>
+                    <div class="card-body text-info d-flex list-group-item-info">
+                        <h5 class="card-text mr-auto">Amount: <span
+                                class="font-weight-bold list-group-item-info">{{ product.amount }}</span></h5>
                     </div>
                 </div>
             </div>
