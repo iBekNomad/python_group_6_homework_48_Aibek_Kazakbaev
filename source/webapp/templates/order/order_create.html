@@ -3,10 +3,16 @@
 {% block title %}Create{% endblock %}
 
 {% block content %}
-    <h1 class="text-info">Check Out</h1>
+    <div class="alert alert-info text-uppercase font-weight-bold col-sm-12" role="alert">
+        <h2 class="d-flex justify-content-center">
+            check out
+        </h2>
+        <div class="d-flex justify-content-center">
+            {% url 'order_create' as action_url %}
+            {% include 'partial/form.html' with action_url=action_url form_method='post' %}
+        </div>
+    </div>
 
-    {% url 'order_create' as action_url %}
-    {% include 'partial/form.html' with action_url=action_url form_method='post' %}
-    <br/>
+
 
 {% endblock %}

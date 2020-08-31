@@ -5,13 +5,12 @@
 
 {% block content %}
     <h1 class="text-info amatic-text font-weight-bold">Orders</h1>
-    {% for checkoutorder in checks %}
-        <ul class="list-group">
+    {% for order in orders %}
+        <ul class="list-group mb-3">
             <li class="list-group-item list-group-item-info">
-                <h2 class="d-flex justify-content-center">Order №: {{ checkoutorder.order.pk }}</h2>
-                <p>product: {{ checkoutorder.checkout_product }}</p>
-                <p>qty: {{ checkoutorder.total_amount }}</p>
-                <p>name: {{ checkoutorder.order.user_name }}</p>
+                <h3 class="d-inline-block">{{ order.checkout_product.name }}</h3>
+                <h4 class="d-inline-block float-right">qty: {{ order.total_amount }}</h4>
+                <h4 class="">order #: {{ order.order_id }}</h4>
             </li>
         </ul>
     {% endfor %}

@@ -1,17 +1,14 @@
-from django.core.exceptions import ObjectDoesNotExist
-from django.urls import reverse_lazy, reverse
-
-from django.views.generic import CreateView, DeleteView, ListView, DetailView
+from django.views.generic import CreateView
 
 from webapp.forms import OrderForm
-from webapp.models import Product, Cart, Order, CheckOutOrder
+from webapp.models import Cart, Order, CheckOutOrder
 from django.shortcuts import redirect, get_object_or_404
 
 from webapp.views import SearchView
 
 
 class OrderCreateView(CreateView):
-    template_name = 'cart/cart_index.html'
+    template_name = 'order/order_create.html'
     model = Order
     form_class = OrderForm
 
@@ -32,5 +29,4 @@ class OrderCreateView(CreateView):
 class OrderIndexView(SearchView):
     model = CheckOutOrder
     template_name = 'order/order_index.html'
-    paginate_by = 5
-    context_object_name = 'checks'
+    context_object_name = 'orders'

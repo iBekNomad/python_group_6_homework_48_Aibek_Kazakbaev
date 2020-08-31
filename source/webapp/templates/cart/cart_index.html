@@ -14,7 +14,7 @@
                 <div class="card border-info mb-3">
                     <div class="d-flex bd-highlight">
                         <div class="mr-auto p-2 bd-highlight">
-                            <h4 class="text-success">
+                            <h4 class="text-success font-weight-bold">
                                 {{ product.product.name }}
                             </h4>
                             <h5 class="text-info">
@@ -34,18 +34,13 @@
             </div>
         {% endfor %}
         <div class="alert alert-info text-uppercase font-weight-bold col-sm-12" role="alert">
-            <h2 class="d-flex justify-content-center">total: <span class="font-weight-bold pl-2 pr-2">{{ total }}</span>
-                som</h2>
-            <form action="{% url 'order_create' %}" method="post">
-                {% csrf_token %}
-                {% include 'partial/form_field.html' with field=form.user_name %}
-                {% include 'partial/form_field.html' with field=form.phone_number %}
-                {% include 'partial/form_field.html' with field=form.address %}
-                <div class="d-flex justify-content-center">
-                    <input class="w-25 text-uppercase btn btn btn-outline-info font-weight-bold" type="submit"
-                           value="CheckOut"/>
-                </div>
-            </form>
+            <h2 class="d-flex justify-content-center">
+                total: <span class="font-weight-bold pl-2 pr-2">{{ total }}</span>som
+            </h2>
+            <div class="d-flex justify-content-center">
+                <a href="{% url 'order_create' %}"
+                   class="w-25 text-uppercase btn btn btn-outline-info font-weight-bold">Checkout</a>
+            </div>
         </div>
     </div>
     {% if is_paginated %}

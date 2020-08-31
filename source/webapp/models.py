@@ -56,4 +56,4 @@ class Order(models.Model):
 class CheckOutOrder(models.Model):
     checkout_product = models.ForeignKey('webapp.Product', related_name='checkout_products', on_delete=models.CASCADE)
     order = models.ForeignKey('webapp.Order', related_name='checkout_orders', on_delete=models.CASCADE)
-    total_amount = models.IntegerField(verbose_name='Итого')
+    total_amount = models.IntegerField(verbose_name='Колличество')
